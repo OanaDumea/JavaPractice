@@ -1,28 +1,42 @@
+import java.util.ArrayList;
+
 public class EmployeeApplication {
 
     public static void main(String[] args) {
-        Employee emp1 = new Employee("Oana", "Dumea", 45);
-        Employee emp2 = new Employee("Helen", "Last", 55);
-        Manager mng1 = new Manager("Joe", "Duffy", 37);
+        ArrayList<Employee> employees = new ArrayList<>();
+        Employee emp1 = new Employee("Oana", "Dumea", "HR", 2756, 45);
+        Employee emp2 = new Employee("Joe", "Duffy", "IT", 8649, 34);
 
-        emp1.introduction();
-        emp2.introduction();
-        mng1.introduction();
+        //emp1.introduction();
+        //emp2.introduction();
 
-        Employee employee = emp1;
+        Manager manager = new Manager("Goe", 68);
+        //manager.introduction();
 
-     /*  public static void introduce;(Employee e){
-            System.out.println(employee.introduction());
+
+//        Employee[] employees = {emp1, emp2, manager};
+
+//        employees.add(new Employee(emp1,emp2,manager));
+
+
+        manager.addEmployee(emp1);
+        manager.addEmployee(emp2);
+
+        for (int i=0; i< employees.size(); i++){
+            System.out.println(employees.get(i));
         }
-*/
 
-//        //see the output, the age is not incremented past 65
-//        for(int i=0; i<70; i++ ){
-//            emp1.incAge();
-//            System.out.println(emp1.getAge());
-//        }
+        Manager manager2 = new Manager("Daniel Sand", 34);
+        Employee emp3 = new Employee("John Quin", 27);
+        manager2.addEmployee(emp3);
 
+        Manager superManager = new Manager("Helen Clark", 30);
+        superManager.addEmployee(manager);
+        superManager.addEmployee(manager2);
+
+        System.out.println(superManager);
     }
+
 }
 
 
